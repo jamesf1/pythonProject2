@@ -17,7 +17,16 @@ def testAddProduct():
     product = invoice.addProduct(1, 2, 3)
     print(product)
     assert product.get('qnt') == 1
+    
+def testAddProductUnitPrice():
+    invoice = Invoice()
+    product = invoice.addProduct(1,2,3)
+    assert product.get('unit_price') == 2
 
+def testAddProductDiscount():
+    invoice = Invoice()
+    product = invoice.addProduct(1,2,3)
+    assert product.get('discount') == 3
 
 def test_CanCalculateTotalDiscount(invoice, products):
     invoice.totalDiscount(products)
